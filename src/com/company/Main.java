@@ -153,12 +153,14 @@ public class Main {
             if(chars.equals(dictionary.get(i)[1]))
             {
                 isWhole=true;
-                return dictionary.get(i)[0];
+                //return dictionary.get(i)[0];
+                return Integer.toString(i);
 
             }
             else if(chars.substring(0,1).equals(dictionary.get(i)[1]))
             {
-                firstChar= dictionary.get(i)[0];
+                //firstChar= dictionary.get(i)[0];
+                firstChar=Integer.toString(i);
             }
         }
         return firstChar;

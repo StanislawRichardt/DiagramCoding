@@ -68,9 +68,9 @@ public class Main {
         return value;
     }
     private static void dictionaryDisplay(){
-        for (int i = 0; i < dictionary.size(); i++) {
+        for (String[] strings : dictionary) {
 
-            System.out.println(dictionary.get(i)[0]+'\t'+" | "+ dictionary.get(i)[1]+'\t');
+            System.out.println(strings[0] + '\t' + " | " + strings[1] + '\t');
         }
     }
     private static void outputFileUtility(){
@@ -106,8 +106,6 @@ public class Main {
             }
             probabilityCount(pairList);
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -115,11 +113,11 @@ public class Main {
     private static void binaryCreation(){
 
         for(int i=0;i<dictionary.size();i++){
-            String binary= Integer.toBinaryString(i);
+            StringBuilder binary= new StringBuilder(Integer.toBinaryString(i));
             for(int j=binary.length();j<8;j++){
-                binary= "0"+binary;
+                binary.insert(0, "0");
             }
-            dictionary.set(i,new String[]{binary,dictionary.get(i)[1]});
+            dictionary.set(i,new String[]{binary.toString(),dictionary.get(i)[1]});
         }
     }
     private static void diagramCoding(){
